@@ -1,5 +1,5 @@
 {% set name = "tigernet" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a9a54116e884969d46f6add45f85b1fb37abcb96cc2b0394c1bb69f3ea7570ad
+  sha256: aff5e15e39d76310b51f68ac7208dbe68d2146cc9a899582ee3e0cc54f63bcc1
 
 build:
   noarch: python
