@@ -1,56 +1,59 @@
 {% set name = "tigernet" %}
-{% set version = "0.2.3" %}
+{% set version = "0.2.4" %}
+
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: aff5e15e39d76310b51f68ac7208dbe68d2146cc9a899582ee3e0cc54f63bcc1
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tigernet-{{ version }}.tar.gz
+  sha256: fc08329dd3b7ac3543cba051aed4093ccad6cbb0a59985e9cf70a7183a866fb7
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3
+    - python >=3.8
     - pip
   run:
-    - python >=3
+    - python >=3.8
     - black
-    - geopandas >=0.8
-    - libpysal >=4.3
-    - numpy >=1.3
-    - pandas >=1.0
+    - codecov
+    - gdal >=3.3.0
+    - geopandas >=0.9.0
+    - libpysal
+    - numpy
+    - pandas
     - pre-commit
-    - scipy >=0.11
-    - shapely >=1.7.1
-    - spaghetti >=1.5.6
+    - pygeos >=0.8
     - pytest
     - pytest-cov
-    - codecov
+    - shapely >=1.7.1
+    - spaghetti
 
 test:
   imports:
-    - {{ name }}
+    - tigernet
+    - tigernet.tests
   commands:
     - pip check
   requires:
     - pip
 
 about:
-  home: https://github.com/jGaboardi/{{ name }}
+  home: https://github.com/jGaboardi/tigernet
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
   summary: 'tigernet: Network Topology via TIGER/Line Edges'
   description: |
     TigerNet is an open-source Python library that addresses concerns in topology and builds accurate spatial network representations from [TIGER/Line data](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html), specifically [TIGER/Line edges](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2017/TGRSHP2017_TechDoc_Ch4.pdf).
-  doc_url: https://jgaboardi.github.io/{{ name }}/
-  dev_url: https://github.com/jGaboardi/{{ name }}
+  doc_url: https://jgaboardi.github.io/tigernet/
+  dev_url: https://github.com/jGaboardi/tigernet
 
 extra:
   recipe-maintainers:
