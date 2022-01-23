@@ -29,11 +29,14 @@ requirements:
     - numpy
     - pandas
     - pre-commit
+    - pyamg
     - pygeos >=0.8
     - pytest
     - pytest-cov
+    - pytest-xdist
     - shapely >=1.7.1
     - spaghetti
+    - versioneer
 
 test:
   imports:
