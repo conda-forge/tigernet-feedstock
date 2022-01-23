@@ -1,5 +1,5 @@
 {% set name = "tigernet" %}
-{% set version = "0.2.8" %}
+{% set version = "0.2.9" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tigernet-{{ version }}.tar.gz
-  sha256: 0137ecd531cb394e0d61b61e8fd7d0bd02ac0923a8f9f6cf11962f3b2eadf3ef
+  sha256: 93da7c360e21c2e4f1ea06c60f49d5269aaa7dccfeb3219191dd64d41d744527
 
 build:
   number: 0
@@ -29,11 +29,14 @@ requirements:
     - numpy
     - pandas
     - pre-commit
+    - pyamg
     - pygeos >=0.8
     - pytest
     - pytest-cov
+    - pytest-xdist
     - shapely >=1.7.1
     - spaghetti
+    - versioneer
 
 test:
   imports:
